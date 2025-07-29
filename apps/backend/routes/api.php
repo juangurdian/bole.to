@@ -329,6 +329,33 @@ $router->middleware(['auth:api'])->group(
         // Images
         $router->post('/images', CreateImageAction::class);
         $router->delete('/images/{image_id}', DeleteImageAction::class);
+
+        // Bole.to Social Features
+        // Social Feed
+        $router->get('/events/{event_id}/feed', \HiEvents\Http\Actions\Boleto\Social\GetEventFeedAction::class);
+        $router->post('/events/{event_id}/feed', \HiEvents\Http\Actions\Boleto\Social\CreatePostAction::class);
+        $router->post('/events/{event_id}/feed/{post_id}/reactions', \HiEvents\Http\Actions\Boleto\Social\AddReactionAction::class);
+        $router->delete('/events/{event_id}/feed/{post_id}/reactions', \HiEvents\Http\Actions\Boleto\Social\RemoveReactionAction::class);
+        $router->post('/events/{event_id}/feed/{post_id}/pin', \HiEvents\Http\Actions\Boleto\Social\TogglePinAction::class);
+
+        // Disposable Camera
+        $router->get('/events/{event_id}/photos', \HiEvents\Http\Actions\Boleto\Camera\GetEventPhotosAction::class);
+        $router->post('/events/{event_id}/photos', \HiEvents\Http\Actions\Boleto\Camera\UploadPhotoAction::class);
+        $router->post('/events/{event_id}/photos/{photo_id}/interactions', \HiEvents\Http\Actions\Boleto\Camera\AddPhotoInteractionAction::class);
+        $router->post('/events/{event_id}/photos/{photo_id}/reveal', \HiEvents\Http\Actions\Boleto\Camera\RevealPhotoAction::class);
+        $router->get('/events/{event_id}/photos/stats', \HiEvents\Http\Actions\Boleto\Camera\GetPhotoStatsAction::class);
+
+        // Polls
+        $router->get('/events/{event_id}/polls', \HiEvents\Http\Actions\Boleto\Polls\GetEventPollsAction::class);
+        $router->post('/events/{event_id}/polls', \HiEvents\Http\Actions\Boleto\Polls\CreatePollAction::class);
+        $router->post('/events/{event_id}/polls/{poll_id}/responses', \HiEvents\Http\Actions\Boleto\Polls\SubmitPollResponseAction::class);
+        $router->get('/events/{event_id}/polls/{poll_id}/results', \HiEvents\Http\Actions\Boleto\Polls\GetPollResultsAction::class);
+        $router->post('/events/{event_id}/polls/{poll_id}/close', \HiEvents\Http\Actions\Boleto\Polls\ClosePollAction::class);
+
+        // Analytics
+        $router->get('/events/{event_id}/analytics', \HiEvents\Http\Actions\Boleto\Analytics\GetEventAnalyticsAction::class);
+        $router->get('/events/{event_id}/analytics/realtime', \HiEvents\Http\Actions\Boleto\Analytics\GetRealTimeMetricsAction::class);
+        $router->get('/events/{event_id}/analytics/leaderboard', \HiEvents\Http\Actions\Boleto\Analytics\GetEngagementLeaderboardAction::class);
     }
 );
 
