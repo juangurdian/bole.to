@@ -1,0 +1,45 @@
+{
+  "name": "bole.to",
+  "version": "0.1.0",
+  "description": "Bole.to - Social Event Ticketing Platform built on Hi.Events",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "type-check": "turbo run type-check",
+    "backend:dev": "turbo run dev --filter=backend",
+    "frontend:dev": "turbo run dev --filter=frontend",
+    "web:dev": "turbo run dev --filter=web",
+    "mobile:dev": "turbo run dev --filter=mobile"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/bole.to.git"
+  },
+  "keywords": [
+    "events",
+    "ticketing", 
+    "social",
+    "event-management",
+    "laravel",
+    "react",
+    "react-native"
+  ],
+  "license": "AGPL-3.0"
+} 

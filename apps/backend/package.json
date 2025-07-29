@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "description": "Bole.to Backend API (Extended Hi.Events)",
+  "private": true,
+  "scripts": {
+    "dev": "php artisan serve --host=0.0.0.0 --port=8000",
+    "build": "composer install --optimize-autoloader --no-dev",
+    "test": "php artisan test",
+    "lint": "vendor/bin/pint --test",
+    "lint:fix": "vendor/bin/pint",
+    "queue:work": "php artisan queue:work",
+    "migrate": "php artisan migrate",
+    "migrate:fresh": "php artisan migrate:fresh --seed",
+    "db:seed": "php artisan db:seed",
+    "type-check": "echo 'Type checking not applicable for PHP'"
+  },
+  "keywords": [
+    "laravel",
+    "php",
+    "api",
+    "events",
+    "ticketing",
+    "social"
+  ],
+  "license": "AGPL-3.0"
+}
