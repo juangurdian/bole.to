@@ -1,0 +1,106 @@
+```mermaid
+graph TD
+    %% Authentication Flow
+    A00[A-00: Splash/App Loader] --> AuthCheck{Token Valid?}
+    AuthCheck -->|No| A01[A-01: Welcome/Get Started]
+    AuthCheck -->|Yes| D01[D-01: Home Feed]
+    
+    A01 --> A02[A-02: Login]
+    A01 --> A03[A-03: Register]
+    A02 --> A04[A-04: Forgot Password]
+    A02 --> D01
+    A03 --> A05[A-05: Onboarding Wizard]
+    A05 --> D01
+    
+    %% Main Navigation Hub (Bottom Tabs)
+    D01 --> NAV{Main Navigation}
+    NAV --> |Flights ✈︎| D01
+    NAV --> |Search 🔍| D04[D-04: Global Search]
+    NAV --> |Trips 🎫| T01[T-01: My Trips]
+    NAV --> |Social 💬| S01[S-01: Social Feed]
+    NAV --> |Profile 👤| P02[P-02: My Profile]
+    
+    %% Discovery Flow
+    D01 --> D02[D-02: City Landing]
+    D01 --> D03[D-03: Category Landing]
+    D01 --> E01[E-01: Event Details]
+    D04 --> D05[D-05: Results List]
+    D05 --> E01
+    D05 --> D06[D-06: Map Explore]
+    D06 --> E01
+    
+    %% Event Experience Flow
+    E01 --> E02[E-02: Ticket Selector]
+    E01 --> E06[E-06: Event Chat]
+    E01 --> E07[E-07: Gallery]
+    E01 --> E08[E-08: Venue Map]
+    E02 --> E03[E-03: Checkout]
+    E03 --> E04[E-04: Payment Success]
+    E04 --> T01
+    E01 --> E05[E-05: Invite Friends]
+    
+    %% Trips Flow
+    T01 --> T02[T-02: Boarding Pass Detail]
+    T02 --> T03[T-03: Trip Timeline]
+    T02 --> WalletAdd[Add to Wallet]
+    
+    %% Social Flow
+    S01 --> S02[S-02: Create Post]
+    S01 --> S03[S-03: Post Detail]
+    S01 --> S04[S-04: Messages List]
+    S01 --> S06[S-06: Story Viewer]
+    S04 --> S05[S-05: Chat Room]
+    
+    %% Profile & Settings Flow
+    P02 --> P01[P-01: Public Profile]
+    P02 --> P03[P-03: Wallet/Payment]
+    P02 --> P04[P-04: Notification Settings]
+    P02 --> P05[P-05: Security & Login]
+    P02 --> P06[P-06: Support Center]
+    P02 --> P07[P-07: Legal & Privacy]
+    P02 --> R01[R-01: Miles Dashboard]
+    
+    %% Rewards Flow
+    R01 --> R02[R-02: Tier Benefits]
+    R01 --> R03[R-03: Redeem Catalog]
+    R03 --> R04[R-04: Redemption Flow]
+    
+    %% Error States
+    NAV --> U01[U-01: 404/Empty State]
+    
+    %% Styling
+    classDef authFlow fill:#FFE1CC,stroke:#FF6600,stroke-width:2px
+    classDef mainFlow fill:#D0E9FF,stroke:#005BFF,stroke-width:2px
+    classDef socialFlow fill:#E6F3FF,stroke:#0066CC,stroke-width:2px
+    classDef errorFlow fill:#FFE6E6,stroke:#CC0000,stroke-width:2px
+    
+    class A00,A01,A02,A03,A04,A05 authFlow
+    class D01,D02,D03,D04,D05,E01,E02,E03,E04,T01,T02 mainFlow
+    class S01,S02,S03,S04,S05,S06 socialFlow
+    class U01 errorFlow
+```
+
+## Navigation Flow Summary
+
+### Primary User Journeys
+
+1. **First-Time User**: A-00 → A-01 → A-03 → A-05 → D-01
+2. **Returning User**: A-00 → D-01 (direct via token)
+3. **Event Discovery**: D-01 → E-01 → E-02 → E-03 → E-04 → T-01
+4. **Social Engagement**: S-01 → S-02/S-03/S-04 → S-05
+5. **Trip Management**: T-01 → T-02 → T-03
+
+### Key Design Principles
+
+- **≤ 3 taps** from Home to any destination
+- **Bottom navigation** provides instant access to core functions
+- **Progressive disclosure** in complex flows (Event → Tickets → Checkout)
+- **Consistent back navigation** maintains context
+- **Deep linking** supported for all major screens
+
+### Critical Path Optimization
+
+1. **Home → Event → Purchase**: Optimized for conversion
+2. **Search → Results → Event**: Streamlined discovery
+3. **Profile → Settings**: Grouped for easy access
+4. **Social → Create/Share**: Minimizes friction for engagement

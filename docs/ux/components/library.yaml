@@ -1,0 +1,385 @@
+# Bole.to Design System Component Library
+# Version: 1.0 (Phase 1)
+# Last Updated: 2025-08-03
+# Atomic Design Structure: Atoms → Molecules → Organisms → Templates
+
+metadata:
+  framework: "React/React Native"
+  styling: "Tailwind CSS + shadcn/ui"
+  design_tokens: "@packages/ui-tokens"
+  accessibility: "WCAG 2.1 AA"
+  platforms: ["web", "mobile"]
+
+# ===============================
+# ATOMS (Basic Building Blocks)
+# ===============================
+atoms:
+  
+  # Typography
+  Text:
+    variants:
+      - display-xl: "text-5xl font-bold" # Hero headers
+      - display-lg: "text-4xl font-bold" # Page headers  
+      - heading-xl: "text-2xl font-semibold" # Section headers
+      - heading-lg: "text-xl font-semibold" # Card headers
+      - heading-md: "text-lg font-medium" # Sub headers
+      - body-lg: "text-base font-normal" # Default body
+      - body-md: "text-sm font-normal" # Smaller body
+      - body-sm: "text-xs font-normal" # Helper text
+      - caption: "text-xs font-medium" # Labels/captions
+    props:
+      - color: "text-jet-black | text-horizon-blue-700 | text-sunset-orange-600"
+      - weight: "font-light | font-normal | font-medium | font-semibold | font-bold"
+    accessibility:
+      - min_contrast: "4.5:1 for text, 3:1 for large text"
+      - screen_reader: "semantic HTML elements (h1-h6, p, span)"
+
+  # Buttons
+  Button:
+    variants:
+      - primary: "bg-horizon-blue-600 text-white hover:bg-horizon-blue-700"
+      - secondary: "border border-horizon-blue-600 text-horizon-blue-600 hover:bg-horizon-blue-50"
+      - tertiary: "text-horizon-blue-600 hover:bg-horizon-blue-50"
+      - destructive: "bg-red-600 text-white hover:bg-red-700"
+      - ghost: "text-gray-600 hover:bg-gray-100"
+    sizes:
+      - xs: "px-2 py-1 text-xs" # 24dp min height
+      - sm: "px-3 py-2 text-sm" # 32dp height
+      - md: "px-4 py-2 text-base" # 40dp height  
+      - lg: "px-6 py-3 text-lg" # 48dp height
+      - xl: "px-8 py-4 text-xl" # 56dp height
+    props:
+      - disabled: "opacity-50 cursor-not-allowed"
+      - loading: "opacity-70 cursor-wait"
+      - full_width: "w-full"
+    accessibility:
+      - min_tap_target: "44x44dp minimum"
+      - focus_visible: "ring-2 ring-horizon-blue-500"
+      - aria_label: "descriptive text for screen readers"
+
+  # Icons
+  Icon:
+    library: "Lucide React / React Native Vector Icons"
+    sizes:
+      - xs: "12x12px"
+      - sm: "16x16px" 
+      - md: "20x20px"
+      - lg: "24x24px"
+      - xl: "32x32px"
+    colors:
+      - inherit: "currentColor"
+      - primary: "text-horizon-blue-600"
+      - secondary: "text-gray-500"
+      - success: "text-green-600"
+      - warning: "text-orange-600"
+      - error: "text-red-600"
+    accessibility:
+      - aria_hidden: "true for decorative icons"
+      - alt_text: "required for meaningful icons"
+
+  # Form Elements
+  Input:
+    variants:
+      - text: "Standard text input"
+      - email: "Email validation"
+      - password: "Hidden text with toggle"
+      - search: "With search icon"
+      - textarea: "Multi-line text input"
+    states:
+      - default: "border-gray-300 focus:border-horizon-blue-500"
+      - error: "border-red-500 text-red-600"
+      - disabled: "bg-gray-100 cursor-not-allowed"
+      - readonly: "bg-gray-50"
+    accessibility:
+      - label_association: "htmlFor/id relationship"
+      - error_description: "aria-describedby for validation messages"
+      - placeholder: "never used as replacement for labels"
+
+  # Images & Media
+  Avatar:
+    sizes:
+      - xs: "24x24px"
+      - sm: "32x32px"
+      - md: "40x40px" 
+      - lg: "48x48px"
+      - xl: "64x64px"
+    fallback: "initials or default avatar icon"
+    props:
+      - rounded: "rounded-full | rounded-lg | rounded-none"
+      - ring: "ring-2 ring-white shadow-lg"
+
+  Badge:
+    variants:
+      - default: "bg-gray-100 text-gray-800"
+      - primary: "bg-horizon-blue-100 text-horizon-blue-800"
+      - success: "bg-green-100 text-green-800"
+      - warning: "bg-orange-100 text-orange-800"
+      - error: "bg-red-100 text-red-800"
+    sizes:
+      - sm: "px-2 py-0.5 text-xs"
+      - md: "px-2.5 py-1 text-sm"
+
+# ===============================
+# MOLECULES (Component Combinations)
+# ===============================
+molecules:
+
+  # Form Components
+  FormField:
+    composition: "Label + Input + HelperText + ErrorMessage"
+    props:
+      - required: "visual asterisk + aria-required"
+      - error: "error state styling + error message"
+      - helper_text: "additional guidance text"
+    accessibility:
+      - fieldset_grouping: "related fields grouped with legend"
+      - error_announcement: "live regions for dynamic errors"
+
+  SearchBar:
+    composition: "Icon + Input + ClearButton"
+    variants:
+      - simple: "Basic search with icon"
+      - with_suggestions: "Dropdown with recent/popular searches"
+      - with_filters: "Additional filter chips"
+    props:
+      - placeholder: "Search events, venues, artists..."
+      - voice_search: "microphone icon for voice input"
+    accessibility:
+      - search_landmark: "role='search'"
+      - live_suggestions: "aria-live='polite'"
+
+  # Navigation Components  
+  TabNavigation:
+    composition: "Tab buttons with active state indicator"
+    variants:
+      - horizontal: "Side-by-side tabs"
+      - vertical: "Stacked tabs for mobile"
+      - scrollable: "Horizontal scroll for many tabs"
+    props:
+      - active_tab: "visual highlight + aria-selected"
+      - disabled_tab: "grayed out + aria-disabled"
+    accessibility:
+      - tab_navigation: "arrow key navigation between tabs"
+      - tab_panel: "aria-controls relationship"
+
+  BreadcrumbNavigation:
+    composition: "Text links separated by chevrons"
+    props:
+      - current_page: "aria-current='page'"
+      - max_items: "collapse middle items with ellipsis"
+    accessibility:
+      - navigation_landmark: "nav role with aria-label"
+
+  # Card Components
+  EventCard:
+    composition: "Image + Badge + Title + Metadata + ActionButton"
+    variants:
+      - horizontal: "Side-by-side layout"
+      - vertical: "Stacked layout"
+      - featured: "Larger with gradient overlay"
+    props:
+      - image: "event banner with alt text"
+      - title: "event name as heading"
+      - metadata: "date, time, location, price"
+      - action: "primary CTA button"
+      - interested_count: "social proof metric"
+    accessibility:
+      - card_clickable: "entire card as button if applicable"
+      - heading_hierarchy: "proper h1-h6 usage"
+
+  BoardingPassCard:
+    composition: "EventInfo + QRCode + StatusIndicator + ActionButtons"
+    visual_metaphor: "Airline boarding pass with perforated edge"
+    props:
+      - qr_code: "check-in validation code"
+      - status: "active | expired | upcoming | cancelled"
+      - perforation: "dashed border line separator"
+      - swipe_actions: "archive, transfer, details"
+    accessibility:
+      - status_announcement: "clear status communication"
+      - qr_alternative: "fallback ticket number"
+
+  # Social Components
+  UserProfile:
+    composition: "Avatar + Name + FollowButton + Stats"
+    props:
+      - verified: "verification badge"
+      - follow_status: "following | not_following | mutual"
+      - stats: "followers, following, events attended"
+    accessibility:
+      - profile_link: "navigates to full profile"
+      - follow_action: "clear button text"
+
+  SocialPost:
+    composition: "UserProfile + Content + Media + Actions + Timestamp"
+    props:
+      - content: "text content with hashtags/mentions"
+      - media: "optional images/videos"
+      - actions: "like, comment, share, save"
+      - engagement: "like count, comment count"
+    accessibility:
+      - time_format: "relative and absolute timestamps"
+      - media_alt: "alt text for all images"
+
+# ===============================
+# ORGANISMS (Complex Components)
+# ===============================
+organisms:
+
+  # Navigation Systems
+  BottomTabNavigation:
+    composition: "5 TabButton molecules with icons and labels"
+    platform: "mobile"
+    tabs:
+      - flights: "Home/Destinations - airplane icon"
+      - search: "Search - magnifying glass icon"  
+      - trips: "My Trips - ticket icon"
+      - social: "Social Feed - chat icon"
+      - profile: "Profile - user icon"
+    props:
+      - active_tab: "highlighted tab with badge support"
+      - notification_badges: "red dot for unread items"
+    accessibility:
+      - tab_bar: "navigation landmark"
+      - safe_area: "respects device safe areas"
+
+  TopNavigation:
+    composition: "Logo + NavigationLinks + SearchBar + UserMenu"
+    platform: "web"
+    props:
+      - responsive: "hamburger menu on mobile"
+      - search: "expandable search with suggestions"
+      - user_menu: "dropdown with profile options"
+    accessibility:
+      - skip_links: "skip to main content"
+      - focus_management: "visible focus indicators"
+
+  # Content Sections
+  HeroCarousel:
+    composition: "Multiple EventCard molecules with pagination"
+    props:
+      - autoplay: "automatic slide progression"
+      - pagination_dots: "current slide indicator"
+      - swipe_gestures: "touch/swipe navigation"
+      - loop: "infinite scroll behavior"
+    accessibility:
+      - slide_announcements: "current slide info"
+      - pause_autoplay: "on focus/hover"
+
+  EventDetailsHeader:
+    composition: "EventBanner + EventInfo + ActionButtons + TabNavigation"
+    props:
+      - banner_image: "full-width hero image"
+      - floating_actions: "save, share buttons"
+      - sticky_header: "condensed header on scroll"
+      - tab_content: "about, tickets, gallery, chat, faq"
+    accessibility:
+      - image_description: "detailed alt text for banner"
+      - sticky_navigation: "maintains tab accessibility"
+
+  TicketSelector:
+    composition: "TicketOption molecules + PromoCode + PriceCalculator"
+    props:
+      - ticket_tiers: "general, vip, premium options"
+      - quantity_stepper: "increment/decrement controls"
+      - promo_code: "discount code application"
+      - price_breakdown: "subtotal, fees, total"
+    accessibility:
+      - price_updates: "live region for total changes"
+      - quantity_limits: "max ticket constraints"
+
+  # Feed Systems
+  EventFeed:
+    composition: "Multiple EventCard molecules with infinite scroll"
+    props:
+      - personalization: "based on user interests"
+      - infinite_scroll: "lazy loading on scroll"
+      - pull_refresh: "refresh gesture"
+      - empty_state: "no events found message"
+      - loading_state: "skeleton placeholders"
+    accessibility:
+      - feed_updates: "new content announcements"
+      - scroll_position: "maintain position on navigation"
+
+  SocialFeed:
+    composition: "Multiple SocialPost molecules with stories bar"
+    props:
+      - stories: "horizontal scrolling story previews"
+      - posts: "vertical scrolling post feed"
+      - real_time: "live updates for new content"
+      - engagement: "like, comment interactions"
+    accessibility:
+      - content_warnings: "sensitive content handling"
+      - auto_play_control: "video/audio preferences"
+
+# ===============================
+# TEMPLATES (Page-Level Layouts)
+# ===============================
+templates:
+
+  AuthTemplate:
+    composition: "Logo + Form + SocialButtons + Footer"
+    usage: "Login, Register, Reset Password screens"
+    layout:
+      mobile: "Single column, full height"
+      web: "Split layout with hero content"
+
+  FeedTemplate:
+    composition: "TopNav + HeroSection + ContentFeed + BottomNav"
+    usage: "Home, Search Results, Social Feed"
+    layout:
+      mobile: "Stacked vertical layout"
+      web: "Header + main content area"
+
+  DetailTemplate:
+    composition: "Header + HeroSection + TabContent + StickyActions"
+    usage: "Event Details, Profile Pages"
+    layout:
+      mobile: "Full-screen with sticky elements"
+      web: "Two-column with sidebar"
+
+  TicketTemplate:
+    composition: "Header + TicketList + EmptyState"
+    usage: "My Trips, Ticket Management"
+    layout:
+      mobile: "Card stack with swipe gestures"
+      web: "Grid layout with action panels"
+
+# ===============================
+# IMPLEMENTATION NOTES
+# ===============================
+implementation:
+  
+  react_native:
+    - "Use React Native Paper for base components"
+    - "Platform-specific styling with Platform.select()"
+    - "Safe area handling with react-native-safe-area-context"
+    - "Gesture handling with react-native-gesture-handler"
+    
+  react_web:
+    - "Use shadcn/ui as component foundation"
+    - "Responsive breakpoints: sm:640px, md:768px, lg:1024px, xl:1280px"
+    - "Focus management with @radix-ui/react-focus-scope"
+    - "Animation with framer-motion"
+
+  shared_state:
+    - "Zustand for global state management"
+    - "TanStack Query for server state"
+    - "Component prop interfaces in TypeScript"
+
+  testing:
+    - "Jest + React Testing Library for unit tests"
+    - "Accessibility testing with @testing-library/jest-dom"
+    - "Visual regression with Chromatic"
+    - "E2E testing with Playwright (web) / Detox (mobile)"
+
+# ===============================
+# DESIGN TOKENS REFERENCE
+# ===============================
+design_tokens_reference:
+  colors: "@packages/ui-tokens/colors"
+  spacing: "@packages/ui-tokens/spacing"  
+  typography: "@packages/ui-tokens/typography"
+  shadows: "@packages/ui-tokens/shadows"
+  borders: "@packages/ui-tokens/borders"
+  animations: "@packages/ui-tokens/animations"

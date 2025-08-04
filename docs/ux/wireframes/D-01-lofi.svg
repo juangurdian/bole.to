@@ -1,0 +1,148 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mobile Layout (Left Side) -->
+  <g id="mobile-layout">
+    <!-- Mobile Frame -->
+    <rect x="50" y="50" width="300" height="600" fill="none" stroke="#333" stroke-width="2" rx="20"/>
+    <text x="60" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold">MOBILE (375x812)</text>
+    
+    <!-- Status Bar -->
+    <rect x="60" y="60" width="280" height="20" fill="#f0f0f0"/>
+    <text x="65" y="75" font-family="Arial, sans-serif" font-size="10">9:41 AM</text>
+    <text x="320" y="75" font-family="Arial, sans-serif" font-size="10" text-anchor="end">100%</text>
+    
+    <!-- Header with Search -->
+    <rect x="60" y="90" width="280" height="50" fill="#f8f9fa"/>
+    <text x="70" y="110" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Destinations</text>
+    <rect x="240" y="105" width="30" height="20" fill="#ddd" stroke="#999"/>
+    <text x="255" y="118" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">🔍</text>
+    <rect x="280" y="105" width="30" height="20" fill="#ddd" stroke="#999"/>
+    <text x="295" y="118" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">👤</text>
+    
+    <!-- Hero Carousel -->
+    <rect x="70" y="160" width="260" height="120" fill="#005BFF" rx="8"/>
+    <text x="200" y="210" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Featured Event</text>
+    <text x="200" y="230" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Summer Music Festival</text>
+    <circle cx="190" cy="260" r="3" fill="white"/>
+    <circle cx="200" cy="260" r="3" fill="rgba(255,255,255,0.5)"/>
+    <circle cx="210" cy="260" r="3" fill="rgba(255,255,255,0.5)"/>
+    
+    <!-- Promo Banner -->
+    <rect x="70" y="300" width="260" height="40" fill="#FF6600" rx="4"/>
+    <text x="200" y="325" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">🎉 Early Bird: 20% off selected events</text>
+    
+    <!-- Section Header -->
+    <text x="70" y="370" font-family="Arial, sans-serif" font-size="16" font-weight="bold">For You</text>
+    <text x="320" y="370" font-family="Arial, sans-serif" font-size="12" text-anchor="end">See all</text>
+    
+    <!-- Event Cards -->
+    <rect x="70" y="380" width="260" height="80" fill="white" stroke="#e0e0e0" rx="4"/>
+    <rect x="80" y="390" width="60" height="60" fill="#ddd"/>
+    <text x="155" y="405" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Tech Conference 2025</text>
+    <text x="155" y="420" font-family="Arial, sans-serif" font-size="10" fill="#666">Sat, Aug 10 • $75</text>
+    <text x="155" y="435" font-family="Arial, sans-serif" font-size="10" fill="#666">Convention Center</text>
+    <text x="155" y="450" font-family="Arial, sans-serif" font-size="10" fill="#005BFF">2.3k interested</text>
+    
+    <rect x="70" y="470" width="260" height="80" fill="white" stroke="#e0e0e0" rx="4"/>
+    <rect x="80" y="480" width="60" height="60" fill="#ddd"/>
+    <text x="155" y="495" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Art Gallery Opening</text>
+    <text x="155" y="510" font-family="Arial, sans-serif" font-size="10" fill="#666">Fri, Aug 16 • Free</text>
+    <text x="155" y="525" font-family="Arial, sans-serif" font-size="10" fill="#666">Downtown Gallery</text>
+    <text x="155" y="540" font-family="Arial, sans-serif" font-size="10" fill="#005BFF">856 interested</text>
+    
+    <!-- Pull to Refresh Indicator -->
+    <circle cx="200" cy="570" r="8" fill="none" stroke="#ccc" stroke-width="2"/>
+    <text x="200" y="590" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Pull to refresh</text>
+    
+    <!-- Bottom Navigation -->
+    <rect x="60" y="610" width="280" height="50" fill="#f8f9fa" stroke="#e0e0e0"/>
+    <rect x="75" y="620" width="40" height="30" fill="#005BFF" rx="4"/>
+    <text x="95" y="640" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">Flights</text>
+    <rect x="125" y="620" width="40" height="30" fill="none" stroke="#ccc" rx="4"/>
+    <text x="145" y="640" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Search</text>
+    <rect x="175" y="620" width="40" height="30" fill="none" stroke="#ccc" rx="4"/>
+    <text x="195" y="640" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Trips</text>
+    <rect x="225" y="620" width="40" height="30" fill="none" stroke="#ccc" rx="4"/>
+    <text x="245" y="640" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Social</text>
+    <rect x="275" y="620" width="40" height="30" fill="none" stroke="#ccc" rx="4"/>
+    <text x="295" y="640" font-family="Arial, sans-serif" font-size="8" text-anchor="middle">Profile</text>
+  </g>
+  
+  <!-- Web Layout (Right Side) -->
+  <g id="web-layout">
+    <!-- Web Frame -->
+    <rect x="450" y="50" width="700" height="500" fill="none" stroke="#333" stroke-width="2"/>
+    <text x="460" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold">WEB (1440x900)</text>
+    
+    <!-- Header Navigation -->
+    <rect x="460" y="60" width="680" height="60" fill="#f8f9fa" stroke="#e0e0e0"/>
+    <text x="480" y="95" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Bole.to</text>
+    
+    <!-- Navigation Menu -->
+    <text x="600" y="95" font-family="Arial, sans-serif" font-size="14">Destinations</text>
+    <text x="680" y="95" font-family="Arial, sans-serif" font-size="14">Search</text>
+    <text x="730" y="95" font-family="Arial, sans-serif" font-size="14">My Trips</text>
+    <text x="780" y="95" font-family="Arial, sans-serif" font-size="14">Social</text>
+    
+    <!-- Search Bar -->
+    <rect x="850" y="75" width="200" height="30" fill="white" stroke="#ccc" rx="15"/>
+    <text x="860" y="95" font-family="Arial, sans-serif" font-size="12" fill="#666">Search events...</text>
+    <text x="1040" y="95" font-family="Arial, sans-serif" font-size="12">🔍</text>
+    
+    <!-- Profile Icon -->
+    <circle cx="1100" cy="90" r="15" fill="#ddd" stroke="#999"/>
+    <text x="1100" y="96" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">👤</text>
+    
+    <!-- Main Content Area -->
+    <rect x="480" y="140" width="640" height="360" fill="white"/>
+    
+    <!-- Hero Section -->
+    <rect x="500" y="160" width="600" height="150" fill="#005BFF" rx="8"/>
+    <text x="800" y="220" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="bold" text-anchor="middle">Summer Music Festival</text>
+    <text x="800" y="245" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">The biggest music event of the year</text>
+    <rect x="750" y="260" width="100" height="30" fill="white" rx="4"/>
+    <text x="800" y="280" font-family="Arial, sans-serif" font-size="12" fill="#005BFF" text-anchor="middle">Get Tickets</text>
+    
+    <!-- Promo Banner -->
+    <rect x="500" y="330" width="600" height="40" fill="#FF6600" rx="4"/>
+    <text x="800" y="355" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">🎉 Early Bird Special: 20% off selected events - Limited time!</text>
+    
+    <!-- Event Grid -->
+    <text x="500" y="395" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Recommended For You</text>
+    <text x="1080" y="395" font-family="Arial, sans-serif" font-size="12" text-anchor="end">View all →</text>
+    
+    <!-- Event Cards Grid -->
+    <rect x="500" y="410" width="140" height="80" fill="white" stroke="#e0e0e0" rx="4"/>
+    <rect x="510" y="420" width="30" height="30" fill="#ddd"/>
+    <text x="555" y="430" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Tech Conf</text>
+    <text x="555" y="445" font-family="Arial, sans-serif" font-size="8" fill="#666">Aug 10 • $75</text>
+    <text x="555" y="470" font-family="Arial, sans-serif" font-size="8" fill="#005BFF">2.3k interested</text>
+    
+    <rect x="660" y="410" width="140" height="80" fill="white" stroke="#e0e0e0" rx="4"/>
+    <rect x="670" y="420" width="30" height="30" fill="#ddd"/>
+    <text x="715" y="430" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Art Opening</text>
+    <text x="715" y="445" font-family="Arial, sans-serif" font-size="8" fill="#666">Aug 16 • Free</text>
+    <text x="715" y="470" font-family="Arial, sans-serif" font-size="8" fill="#005BFF">856 interested</text>
+    
+    <rect x="820" y="410" width="140" height="80" fill="white" stroke="#e0e0e0" rx="4"/>
+    <rect x="830" y="420" width="30" height="30" fill="#ddd"/>
+    <text x="875" y="430" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Food Festival</text>
+    <text x="875" y="445" font-family="Arial, sans-serif" font-size="8" fill="#666">Aug 20 • $25</text>
+    <text x="875" y="470" font-family="Arial, sans-serif" font-size="8" fill="#005BFF">1.8k interested</text>
+    
+    <rect x="980" y="410" width="140" height="80" fill="white" stroke="#e0e0e0" rx="4"/>
+    <rect x="990" y="420" width="30" height="30" fill="#ddd"/>
+    <text x="1035" y="430" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Comedy Show</text>
+    <text x="1035" y="445" font-family="Arial, sans-serif" font-size="8" fill="#666">Aug 25 • $40</text>
+    <text x="1035" y="470" font-family="Arial, sans-serif" font-size="8" fill="#005BFF">645 interested</text>
+  </g>
+  
+  <!-- Annotations -->
+  <g id="annotations">
+    <text x="50" y="700" font-family="Arial, sans-serif" font-size="14" font-weight="bold">KEY ANNOTATIONS:</text>
+    <text x="50" y="720" font-family="Arial, sans-serif" font-size="12">• Hero carousel with pagination dots, swipe gestures</text>
+    <text x="50" y="735" font-family="Arial, sans-serif" font-size="12">• Pull-to-refresh and infinite scroll for discovery</text>
+    <text x="50" y="750" font-family="Arial, sans-serif" font-size="12">• Personalized event cards with engagement metrics</text>
+    <text x="50" y="765" font-family="Arial, sans-serif" font-size="12">• Promo banner for marketing campaigns</text>
+    <text x="50" y="780" font-family="Arial, sans-serif" font-size="12">• Bottom nav (mobile) vs top nav (web) for platform optimization</text>
+  </g>
+</svg>
